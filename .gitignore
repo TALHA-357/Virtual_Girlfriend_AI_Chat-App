@@ -1,0 +1,28 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+chatbot/
+env/
+ENV/
+.venv/
+.env/
+
+
+
+# =========================
+# Environment Variables
+# =========================
+.env
+
+
+Lib/
+
+
+

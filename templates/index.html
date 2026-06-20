@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Girlfriend 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+<body>
+
+<!-- ==============================
+     TOP NAVIGATION BAR
+================================= -->
+<div class="top-navbar">
+    <div class="nav-left">
+        💖 Virtual Girlfriend
+    </div>
+
+    <div class="nav-right">
+        <span class="current-user">{{ username }}</span>
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+</div>
+
+<!-- ==============================
+     MAIN LAYOUT
+================================= -->
+<div class="main-layout">
+
+    <!-- ==============================
+         SIDEBAR (CHAT HISTORY)
+    ================================= -->
+    <div class="history-sidebar">
+
+        <button onclick="createNewChat()" class="new-chat-btn">
+            + New Chat
+        </button>
+
+        <div id="conversation-list" class="history-list">
+            <!-- Conversations will be loaded here dynamically -->
+        </div>
+
+    </div>
+
+    <!-- ==============================
+         CHAT SECTION
+    ================================= -->
+    <div class="chat-container">
+
+        <div class="chat-header">
+            <h2>💖 Your Loving AI Girlfriend</h2>
+        </div>
+
+        <div id="chat-box" class="chat-box"></div>
+
+        <div class="input-area">
+            <input 
+                type="text" 
+                id="user-input" 
+                placeholder="Type something sweet..." 
+                autocomplete="off"
+            />
+            <button onclick="sendMessage()">Send 💌</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

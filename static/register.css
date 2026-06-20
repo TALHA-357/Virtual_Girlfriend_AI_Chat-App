@@ -1,0 +1,145 @@
+/* ============================= */
+/* 💖 REGISTER PAGE STYLING 💖  */
+/* ============================= */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Full Page Background */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #eac7c8, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Floating Hearts Background */
+.hearts-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hearts-bg::before,
+.hearts-bg::after {
+    content: "💖 💕 💘 💗 💓";
+    position: absolute;
+    font-size: 30px;
+    animation: floatHearts 20s linear infinite;
+    opacity: 0.4;
+}
+
+.hearts-bg::after {
+    top: 50%;
+    left: 30%;
+    animation-duration: 25s;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) translateX(0);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+    }
+}
+
+/* Wrapper */
+.auth-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glass Card */
+.glass-card {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    z-index: 2;
+}
+
+/* Header */
+.auth-header h2 {
+    margin-bottom: 10px;
+    color: #a93a3a;
+}
+
+.auth-header p {
+    font-size: 14px;
+    color: #a93a3a;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group {
+    position: relative;
+    margin: 15px 0;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Button */
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: #ff4e88;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.auth-btn:hover {
+    background: #ff2e70;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.auth-footer {
+    margin-top: 20px;
+    color: #a93a3a;
+}
+
+.auth-link {
+    color: rgb(62, 185, 230);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}

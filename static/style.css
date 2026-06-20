@@ -1,0 +1,314 @@
+/* ==============================
+   GLOBAL & BODY
+   ============================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #fdcacc, #fad0c4);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    position: relative;           /* needed for absolute-positioned hearts */
+    overflow-x: hidden;
+}
+
+/* ==============================
+   TOP NAVBAR (fixed)
+   ============================== */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #f89eb3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: #895252;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-left {
+    font-size: 18px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.current-user {
+    font-size: 14px;
+}
+
+.logout-button {
+    background-color: white;
+    color: #ff6f91;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #ffe0f0;
+    transform: translateY(-1px);
+}
+
+/* ==============================
+   MAIN LAYOUT (sidebar + chat)
+   ============================== */
+.main-layout {
+    display: flex;
+    gap: 24px;
+    margin-top: 90px;               /* space below fixed navbar */
+    padding: 0 5vw;                 /* responsive side padding */
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+.history-sidebar {
+    flex: 0 0 300px;
+    min-width: 280px;
+    max-width: 340px;
+    height: calc(100vh - 120px);     /* almost full height minus navbar + margin */
+    background: white;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==============================
+   CHAT CONTAINER
+   ============================== */
+.chat-container {
+    flex: 1;
+    max-width: 1000px;               /* prevents it from becoming too wide */
+    min-width: 380px;
+    height: calc(100vh - 120px);
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* ==============================
+   CHAT HEADER
+   ============================== */
+.chat-header {
+    padding: 12px 16px;
+    background-color: #ffe0f0;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #444;
+}
+
+/* ==============================
+   CHAT MESSAGES AREA
+   ============================== */
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 8px;
+}
+
+/* ==============================
+   MESSAGE ROWS & BUBBLES
+   ============================== */
+.chat-row {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px 0;
+}
+
+.user-row {
+    justify-content: flex-end;
+}
+
+.bot-row {
+    justify-content: flex-start;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+.user-avatar {
+    background-color: #d1e7ff;
+}
+
+.bot-avatar {
+    background-color: #ffb6d9;
+}
+
+.message {
+    padding: 11px 15px;
+    border-radius: 18px;
+    max-width: 70%;
+    font-size: 14.5px;
+    line-height: 1.4;
+}
+
+.user {
+    background-color: #d1e7ff;
+    border-bottom-right-radius: 5px;
+}
+
+.bot {
+    background-color: #ffe0f0;
+    border-bottom-left-radius: 5px;
+}
+
+/* Typing indicator */
+.typing {
+    font-style: italic;
+    color: #ff6699;
+    opacity: 0.8;
+}
+
+.typing::after {
+    content: '';
+    display: inline-block;
+    margin-left: 6px;
+    width: 7px;
+    height: 7px;
+    background-color: #ff6699;
+    border-radius: 50%;
+    animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+    0%   { opacity: 0.4; transform: scale(0.8); }
+    100% { opacity: 1;   transform: scale(1.3); }
+}
+
+/* ==============================
+   INPUT AREA
+   ============================== */
+.input-area {
+    display: flex;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 24px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    outline: none;
+}
+
+#user-input:focus {
+    border-color: #ff6f91;
+}
+
+button {
+    padding: 0 20px;
+    border-radius: 24px;
+    border: none;
+    background-color: #ff6f91;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #ff4c70;
+    transform: translateY(-1px);
+}
+
+/* ==============================
+   FLOATING HEARTS
+   ============================== */
+/* .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgb(234, 106, 128);
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+    pointer-events: none;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgb(244, 110, 133);
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after  { left: 10px; top: 0; }
+
+@keyframes float {
+    0%   { transform: translateY(100vh) rotate(45deg); opacity: 0.9; }
+    100% { transform: translateY(-60px) rotate(45deg); opacity: 0; }
+} */
+
+/* ==============================
+   RESPONSIVE / MOBILE
+   ============================== */
+@media (max-width: 960px) {
+    .main-layout {
+        flex-direction: column;
+        padding: 0 16px;
+        gap: 16px;
+    }
+
+    .history-sidebar {
+        width: 100%;
+        height: 40vh;
+        max-height: 380px;
+    }
+
+    .chat-container {
+        height: 55vh;
+        max-height: 520px;
+    }
+}
+
+@media (max-width: 500px) {
+    .top-navbar {
+        padding: 0 16px;
+        font-size: 0.95rem;
+    }
+
+    .nav-right {
+        gap: 12px;
+    }
+}

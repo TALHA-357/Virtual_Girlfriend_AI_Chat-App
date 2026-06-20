@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+
+<div class="auth-wrapper">
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg"></div>
+
+    <div class="auth-container glass-card">
+
+        <div class="auth-header">
+            <h2>💖 Join Your Virtual Love 💖</h2>
+            <p>Create your account and start your romantic AI journey ✨</p>
+        </div>
+
+        <form method="POST" class="auth-form">
+
+            <div class="input-group">
+                <span class="input-icon">👤</span>
+                <input name="username" placeholder="Choose a Username" required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-icon">🔒</span>
+                <input name="password" type="password" placeholder="Create a Password" required>
+            </div>
+
+            <button type="submit" class="auth-btn">
+                💕 Create My Account
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+            <p>Already have an account?</p>
+            <a href="/login" class="auth-link">💌 Login Here</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
